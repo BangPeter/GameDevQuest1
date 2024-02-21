@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 913d652434b1ebe43ba62f48c8390638
+guid: 4ccccd299584faa47a19c4b3c3c8d158
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jump_0
+      name: old-dark-castle-interior-tileset_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 200
-        height: 200
+        x: 416
+        y: 49
+        width: 32
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,29 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9be35636a336dd44586f793a472c1adc
-      internalID: -617480918
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jump_1
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 200
-        height: 200
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e1079869ba8f27548b6853c4ee4f4099
-      internalID: 1534825683
+      spriteID: 19cd9c659eb3a32428ebcf4c1da0a22a
+      internalID: -1322938049
       vertices: []
       indices: 
       edges: []
@@ -175,8 +154,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Jump_0: -617480918
-      Jump_1: 1534825683
+      old-dark-castle-interior-tileset_0: -1322938049
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
