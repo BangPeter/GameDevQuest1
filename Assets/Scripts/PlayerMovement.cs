@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerObject : MonoBehaviour
@@ -8,7 +6,7 @@ public class PlayerObject : MonoBehaviour
     public float playerMoveSpeed = 10.0f;
     public float jumpingPower = 8.0f;
     private float horizontal = 0.0f;
-    private GameObject hitbox;
+    //private GameObject hitbox;
 
     private bool isFacingRight = true;
     [SerializeField] private Rigidbody2D rb;
@@ -17,20 +15,23 @@ public class PlayerObject : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer sr;
 
-    [SerializeField] private float attackDelay = 0.15f;
+    private Vector2 originalScale;
+    private Vector2 flippedScale;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        hitbox = GameObject.FindWithTag("Hitbox");
-        hitbox.GetComponent<BoxCollider2D>().enabled = false;
+        originalScale = new Vector2(rb.transform.localScale.x, rb.transform.localScale.y);
+        flippedScale = new Vector2(-originalScale.x, originalScale.y);
     }
 
     private bool IsGrounded()
     {
         //Debug.Log((bool) Physics2D.OverlapBox(groundCheck.position, new Vector2(0.1f, 0.8f), 0.0f, groundLayer));
-        return Physics2D.OverlapBox(groundCheck.position, new Vector2(0.8f, 1.1f), 0.0f, groundLayer);
+        //return Physics2D.OverlapBox(groundCheck.position, new Vector2(0.8f, 1.1f), 0.0f, groundLayer);
         //return Physics2D.OverlapCircle(groundCheck.position, 0.5f, groundLayer);
+        return Mathf.Abs(rb.velocity.y) == 0f;
     }
 
     private bool IsJumping()
@@ -38,18 +39,18 @@ public class PlayerObject : MonoBehaviour
         return Mathf.Abs(rb.velocity.y) != 0f;
     }
 
-    private void ActivateHitbox()
-    {
-        //hitbox = GameObject.FindWithTag("Hitbox");
-        hitbox.GetComponent<BoxCollider2D>().enabled = true;
-        Invoke("DisableHitbox", attackDelay);
-    }
+    //private void ActivateHitbox()
+    //{
+    //    //hitbox = GameObject.FindWithTag("Hitbox");
+    //    hitbox.GetComponent<BoxCollider2D>().enabled = true;
+    //    Invoke("DisableHitbox", attackDelay);
+    //}
 
-    private void DisableHitbox()
-    {
-        //hitbox = GameObject.FindWithTag("Hitbox");
-        hitbox.GetComponent<BoxCollider2D>().enabled = false;
-    }
+    //private void DisableHitbox()
+    //{
+    //    //hitbox = GameObject.FindWithTag("Hitbox");
+    //    hitbox.GetComponent<BoxCollider2D>().enabled = false;
+    //}
 
     // Update is called once per frame
     void Update()
@@ -91,16 +92,16 @@ public class PlayerObject : MonoBehaviour
     private void FixedUpdate()
     {
         animator.SetBool("Jump", IsJumping());
-        if (IsJumping())
+        // Set player velocity
+        rb.velocity = new Vector2(horizontal, rb.velocity.y);
+        if (!isFacingRight)
         {
-            rb.gravityScale = 1.8f;
+            rb.transform.localScale = flippedScale;
         }
         else
         {
-            rb.gravityScale = 1;
+            rb.transform.localScale = originalScale;
         }
-        // Set player velocity
-        rb.velocity = new Vector2(horizontal, rb.velocity.y);
-        sr.flipX = !isFacingRight;
+        // sr.flipX = !isFacingRight;
     }
 }

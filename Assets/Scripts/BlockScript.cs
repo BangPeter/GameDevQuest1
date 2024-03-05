@@ -6,7 +6,7 @@ public class BlockScript : MonoBehaviour
 {
 
     [SerializeField] private Rigidbody2D block;
-    private float horizontal = 5.0f;
+    //private float horizontal = 5.0f;
     //Animate fall even from platforms
 
     // Start is called before the first frame update
@@ -23,7 +23,7 @@ public class BlockScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        block.velocity = new Vector2();
+        //block.velocity = new Vector2();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
