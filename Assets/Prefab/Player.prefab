@@ -87,6 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2888243053655070109}
   - component: {fileID: 222085213620198075}
+  - component: {fileID: 8362903163583059906}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Hitbox
@@ -116,7 +117,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3846103933160072286}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -141,7 +142,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.036601722, y: 0.12541099}
+  m_Offset: {x: 0.031469196, y: 0.12541097}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -152,8 +153,22 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0732032, y: 0.6762645}
+  m_Size: {x: 0.9370616, y: 0.6762645}
   m_EdgeRadius: 0
+--- !u!114 &8362903163583059906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3846103933160072286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b33ad803701d03499e66b59644c3226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagableLayer: 8
+  hitbox: {fileID: 222085213620198075}
 --- !u!1 &6527420497210324800
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,7 +198,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6527420497210324800}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6, y: -2.83, z: 0.035518}
   m_LocalScale: {x: 3.3009973, y: 2.461921, z: 3.2287488}
   m_ConstrainProportionsScale: 0
@@ -337,7 +352,6 @@ MonoBehaviour:
     m_Bits: 64
   animator: {fileID: 2154335975983547514}
   sr: {fileID: 2279651625499995792}
-  attackDelay: 0.15
 --- !u!95 &2154335975983547514
 Animator:
   serializedVersion: 5
