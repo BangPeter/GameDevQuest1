@@ -42,6 +42,9 @@ TagManager:
   - name: BG
     uniqueID: 584216653
     locked: 0
+  - name: BG Objects
+    uniqueID: 1206186003
+    locked: 0
   - name: Ground
     uniqueID: 808826585
     locked: 0
