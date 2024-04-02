@@ -23,13 +23,15 @@ public class CameraScript : MonoBehaviour
         yMax = mapBounds.bounds.max.y;
         mainCam = GetComponent<Camera>();
         camOrthsize = mainCam.orthographicSize;
-        cameraRatio = (xMax + camOrthsize) / 2.0f;
+        //Debug.Log(camOrthsize);
+        //cameraRatio = (xMax - xMin + camOrthsize) / 2.0f;
+        //Debug.Log(cameraRatio);
     }
     // Update is called once per frame
     void FixedUpdate()
     {
         camY = Mathf.Clamp(followTransform.position.y, yMin + camOrthsize, yMax - camOrthsize);
-        camX = Mathf.Clamp(followTransform.position.x, xMin + cameraRatio, xMax - cameraRatio);
+        camX = Mathf.Clamp(followTransform.position.x, xMin + camOrthsize, xMax - camOrthsize);
         smoothPos = Vector3.Lerp(this.transform.position, new Vector3(camX, camY, this.transform.position.z), smoothSpeed);
         this.transform.position = smoothPos;
 
