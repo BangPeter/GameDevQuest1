@@ -31,7 +31,7 @@ public class PlayerObject : MonoBehaviour
         //Debug.Log((bool) Physics2D.OverlapBox(groundCheck.position, new Vector2(0.1f, 0.8f), 0.0f, groundLayer));
         //return Physics2D.OverlapBox(groundCheck.position, new Vector2(0.8f, 1.1f), 0.0f, groundLayer);
         //return Physics2D.OverlapCircle(groundCheck.position, 0.5f, groundLayer);
-        return Mathf.Abs(rb.velocity.y) == 0f;
+        return Mathf.Abs(rb.velocity.y) <= 0.0001f;
     }
 
     private bool IsJumping()
@@ -91,7 +91,7 @@ public class PlayerObject : MonoBehaviour
 
     private void FixedUpdate()
     {
-        animator.SetBool("Jump", IsJumping());
+        animator.SetBool("Jump", !IsGrounded());
         // Set player velocity
         rb.velocity = new Vector2(horizontal, rb.velocity.y);
         if (!isFacingRight)
